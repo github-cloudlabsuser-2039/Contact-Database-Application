@@ -19,7 +19,7 @@
         {
             "type": "Microsoft.Web/serverfarms",
             "apiVersion": "2018-02-01",
-            "name": "[parameters('name')]",
+            "name": "myApp001",
             "location": "[parameters('location')]",
             "sku": {
                 "name": "F1",
@@ -30,7 +30,7 @@
         {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2018-11-01",
-            "name": "[parameters('name')]",
+            "name": "myAppSite001",
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Web/serverfarms/', parameters('name'))]"
@@ -43,7 +43,7 @@
     "outputs": {
         "webAppUrl": {
             "type": "string",
-            "value": "[concat('https://', parameters('name'), '.azurewebsites.net')]"
+            "value": "[concat('https://', 'myAppSite001', '.azurewebsites.net')]"
         }
     }
 }
